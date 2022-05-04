@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/dinusha/AndroidStudioProjects/SimpleExpenseManager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/dinusha/.gradle/caches/transforms-3/efed29ee7ed2750f5cacd7b66f13ab85/transformed/appcompat-v7-26.1.0/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}
