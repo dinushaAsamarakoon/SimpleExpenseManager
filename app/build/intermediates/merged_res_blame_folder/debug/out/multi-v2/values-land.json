@@ -4,7 +4,7 @@
             "outputFile": "/home/dinusha/AndroidStudioProjects/SimpleExpenseManager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/home/dinusha/.gradle/caches/transforms-3/efed29ee7ed2750f5cacd7b66f13ab85/transformed/appcompat-v7-26.1.0/res/values-land/values-land.xml",
+                    "source": "/home/dinusha/.gradle/caches/transforms-2/files-2.1/22201284f06052f57e5af9bcb65a52a3/appcompat-v7-26.1.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/dinusha/.gradle/caches/transforms-3/b78c63140a977d487b336f68b5a5499b/transformed/design-26.1.0/res/values-land/values-land.xml",
+                    "source": "/home/dinusha/.gradle/caches/transforms-2/files-2.1/d1d1709d55c8ab5fa359ce49bd908eb5/design-26.1.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

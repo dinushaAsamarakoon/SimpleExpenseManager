@@ -16,14 +16,53 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager;
 
-import android.app.Application;
-import android.test.ApplicationTestCase;
+import android.content.Context;
+
+import androidx.test.core.app.ApplicationProvider;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.ExpenseManager;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.PersistentExpenseManager;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.exception.InvalidAccountException;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
+
+import static org.junit.Assert.assertTrue;
+
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.List;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-public class ApplicationTest extends ApplicationTestCase<Application> {
-    public ApplicationTest() {
-        super(Application.class);
+public class ApplicationTest{
+    private static ExpenseManager exManager;
+
+
+    @Before
+    public void setup(){
+        Context context = ApplicationProvider.getApplicationContext();
+        exManager = new PersistentExpenseManager(context);
     }
+
+    @Test
+    public void testInsertAccount(){
+        exManager.addAccount("0085806687","Commercial bank","Samarakoon S.M.D.A.",7500.0);
+        List<String> storedAccountNumbers = exManager.getAccountNumbersList();
+        assertTrue(storedAccountNumbers.contains("0085806687"));
+    }
+
+    @Test
+    public void testLogTransaction() throws InvalidAccountException {
+        int rowId_pass = exManager.updateAccountBalance("0085806687",12,5,2022, ExpenseType.EXPENSE,"3500.0");
+        assertTrue(rowId_pass!=-1);
+
+//        int rowId_fail = exManager.updateAccountBalance("008580668",12,5,2022, ExpenseType.EXPENSE,"3500.0");
+//        assertTrue(rowId_fail!=-1);
+
+    }
+
 }

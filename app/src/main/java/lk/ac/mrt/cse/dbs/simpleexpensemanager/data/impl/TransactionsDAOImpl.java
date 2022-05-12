@@ -26,14 +26,14 @@ public class TransactionsDAOImpl extends TableManager implements TransactionDAO 
     }
 
     /***
-     *
-     * @param date        - date of the transaction
+     *  @param date        - date of the transaction
      * @param accountNo   - account number involved
      * @param expenseType - type of the expense
      * @param amount      - amount involved
+     * @return
      */
     @Override
-    public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
+    public int logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
         try {
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues contentValues = new ContentValues();
@@ -44,11 +44,14 @@ public class TransactionsDAOImpl extends TableManager implements TransactionDAO 
             contentValues.put(col_1_4, expenseType.toString());
             contentValues.put(col_1_5, amount);
 
-            db.insert(tbName_1, null, contentValues);
+            int rowId = (int) db.insert(tbName_1, null, contentValues);
             db.close();
+            return rowId;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return -1;
     }
 
     /***
