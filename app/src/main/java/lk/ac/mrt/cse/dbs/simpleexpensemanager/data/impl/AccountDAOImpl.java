@@ -34,7 +34,7 @@ public class AccountDAOImpl extends TableManager implements AccountDAO {
 
         if (res.moveToFirst()) {
             do {
-                list.add(res.getString(res.getColumnIndex(col_2_1)));
+                list.add(res.getString(res.getColumnIndexOrThrow(col_2_1)));
             } while (res.moveToNext());
         }
         res.close();
@@ -56,10 +56,10 @@ public class AccountDAOImpl extends TableManager implements AccountDAO {
         @SuppressLint("Recycle") Cursor res = db.rawQuery(query, null);
         if (res.moveToFirst()) {
             do {
-                list.add(new Account(res.getString(res.getColumnIndex(col_2_1)),
-                        res.getString(res.getColumnIndex(col_2_2)),
-                        res.getString(res.getColumnIndex(col_2_3)),
-                        res.getDouble(res.getColumnIndex(col_2_4))));
+                list.add(new Account(res.getString(res.getColumnIndexOrThrow(col_2_1)),
+                        res.getString(res.getColumnIndexOrThrow(col_2_2)),
+                        res.getString(res.getColumnIndexOrThrow(col_2_3)),
+                        res.getDouble(res.getColumnIndexOrThrow(col_2_4))));
             } while (res.moveToNext());
         }
         res.close();
@@ -79,10 +79,10 @@ public class AccountDAOImpl extends TableManager implements AccountDAO {
         SQLiteDatabase db = this.getReadableDatabase();
         @SuppressLint("Recycle") Cursor res = db.rawQuery(query, new String[]{accountNo});
         if (res.moveToFirst()) {
-            Account account = new Account(res.getString(res.getColumnIndex(col_2_1)),
-                    res.getString(res.getColumnIndex(col_2_2)),
-                    res.getString(res.getColumnIndex(col_2_3)),
-                    res.getDouble(res.getColumnIndex(col_2_4)));
+            Account account = new Account(res.getString(res.getColumnIndexOrThrow(col_2_1)),
+                    res.getString(res.getColumnIndexOrThrow(col_2_2)),
+                    res.getString(res.getColumnIndexOrThrow(col_2_3)),
+                    res.getDouble(res.getColumnIndexOrThrow(col_2_4)));
             res.close();
             db.close();
             return account;

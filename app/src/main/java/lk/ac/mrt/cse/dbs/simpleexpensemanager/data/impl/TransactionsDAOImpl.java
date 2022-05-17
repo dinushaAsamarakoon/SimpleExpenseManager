@@ -78,9 +78,9 @@ public class TransactionsDAOImpl extends TableManager implements TransactionDAO 
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                list.add(new Transaction(date, res.getString(res.getColumnIndex(col_1_2)),
-                        ExpenseType.valueOf(res.getString(res.getColumnIndex(col_1_4))),
-                        res.getDouble(res.getColumnIndex(col_1_5))));
+                list.add(new Transaction(date, res.getString(res.getColumnIndexOrThrow(col_1_2)),
+                        ExpenseType.valueOf(res.getString(res.getColumnIndexOrThrow(col_1_4))),
+                        res.getDouble(res.getColumnIndexOrThrow(col_1_5))));
 
             } while (res.moveToNext());
         }
